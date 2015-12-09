@@ -9,9 +9,6 @@ class PasteryCommand(sublime_plugin.TextCommand):
           content += self.view.substr(region)
 
     url = "https://www.pastery.net/api/paste/?"
-    req = Request(url,
-      data=bytes(content),
-      headers={'User-Agent': 'Mozilla/5.0 Sublime Text Pastery plugin'})
     curl = "curl -X POST "+url
     response = subprocess.Popen(["curl", "-X", "POST", url, "--data", content], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = response.communicate()
