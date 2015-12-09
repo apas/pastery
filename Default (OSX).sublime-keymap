@@ -1,5 +1,5 @@
 [
   { 
-    "keys": ["command+ctrl+c"], "command": "pastery"
+    "keys": ["command+option+c"], "command": "pastery"
   }
 ]
