@@ -20,7 +20,7 @@ class PasteryCommand(sublime_plugin.TextCommand):
     try:
       print("Trying to post with Python lib")
       req = Request(url,
-            data=bytes(content),
+            data=content,
             headers={'User-Agent': 'Mozilla/5.0 (Sublime Text) Pastery plugin'})
       response = urlopen(req)
 
