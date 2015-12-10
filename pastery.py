@@ -12,7 +12,7 @@ class PasteryCommand(sublime_plugin.TextCommand):
     curl = "curl -X POST "+url
     response = subprocess.Popen(["curl", "-X", "POST", url, "--data", content], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = response.communicate()
-    rurl = json.loads(stdout)["url"]
+    rurl = json.loads(stdout.decode("utf8"))["url"]
     print(rurl)
 
     if rurl:
