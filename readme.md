@@ -12,7 +12,7 @@ Through Package Manager.
 
 Pastery requires an API key. Get yours from your [Pastery.net account page][account].
 
-### For Sublime Text 2
+### For Sublime Text 2 and 3
 
 Open the Pastery's settings in Sublime Text (`Sublime Text 2/3` > `Preferences` > `Package Settings` > `Pastery` > `Settings - User`) and enter the code snippet below replacing `foo` with your API key. Save the file and that's it.
 
