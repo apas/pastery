@@ -28,7 +28,7 @@ class PasteryCommand(sublime_plugin.TextCommand):
         print("Error while pasting.")
         sublime.status_message("Error while pasting to Pastery.")
       else:
-        rurl = json.loads(response)["url"]
+        rurl = json.loads(response.decode("utf8"))["url"]
         print("Python lib it is:" + rurl)
         sublime.set_clipboard(str(rurl))
         sublime.status_message("Paste: " + str(rurl))
