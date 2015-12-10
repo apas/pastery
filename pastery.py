@@ -13,7 +13,7 @@ class PasteryCommand(sublime_plugin.TextCommand):
     response = subprocess.Popen(["curl", "-X", "POST", url, "--data", content], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = response.communicate()
     rurl = json.loads(stdout)["url"]
-    print rurl
+    print(rurl)
 
     if rurl:
       sublime.set_clipboard(str(rurl))
