@@ -16,6 +16,7 @@ class PasteryCommand(sublime_plugin.TextCommand):
 
     url = "https://www.pastery.net/api/paste/?&api_key=" + api_key
 
+    # determine POST
     try:
       print("Trying to post with Python lib")
       req = Request(url,
