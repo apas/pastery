@@ -4,7 +4,7 @@
 
 ## Installation
 
-Through Package Manager.
+Through [Package Control][pc].
 
 ## Usage
 
@@ -28,3 +28,4 @@ MIT
 
 [p]: http://pastery.net
 [account]: https://www.pastery.net/account/
+[pc]: https://packagecontrol.io/packages/Pastery
