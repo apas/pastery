@@ -17,6 +17,15 @@ class PasteryCommand(sublime_plugin.TextCommand):
             if not region.empty():
                 content += self.view.substr(region)
 
+        # Nothing was selected, try selecting everything.
+        if not content:
+            content = self.view.substr(sublime.Region(0, self.view.size()))
+
+        # There was still nothing selected, which means the file is empty.
+        if not content:
+            sublime.status_message("There was nothing to paste, aborted.")
+            return
+
         url = "https://www.pastery.net/api/paste/?&api_key=" + api_key
 
         # determine POST

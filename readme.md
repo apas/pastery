@@ -21,6 +21,7 @@ Open the Pastery's settings in Sublime Text (`Sublime Text 2/3` > `Preferences` 
 **Now you can use Pastery for Sublime Text.**
 
 Select any text, hit `cmd` + `option` + `c` and the pastery link will be ready to be pasted from your clipboard.
+If you don't select any text, the entire file will be pasted.
 
 ## License
 
