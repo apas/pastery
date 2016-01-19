@@ -1,9 +1,11 @@
-import sublime, sublime_plugin, json, subprocess
-from subprocess import Popen, PIPE, STDOUT
+import sublime
+import sublime_plugin
+import json
+import subprocess
 try:
-    from urllib.request import urlopen, Request, build_opener
+    from urllib.request import urlopen, Request
 except ImportError:
-    from urllib2 import urlopen, Request, build_opener
+    from urllib2 import urlopen, Request
 
 
 class PasteryCommand(sublime_plugin.TextCommand):
@@ -38,7 +40,6 @@ class PasteryCommand(sublime_plugin.TextCommand):
                 sublime.status_message("Paste: " + str(rurl))
         except Exception:
             print("Trying to post with CURL")
-            curl = "curl -X POST " + url
             response = subprocess.Popen(
                 ["curl", "-X", "POST", url, "--data", content],
                 stdout=subprocess.PIPE,
