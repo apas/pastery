@@ -65,7 +65,9 @@ class PasteryCommand(sublime_plugin.TextCommand):
         # “default_title” is the filename without path and with extension.
         # 2. Else the user has selected text in an unsaved file, in the so-called “unsaved buffer”,
         # the value of “default_title” is “Untitled” string.
-        self.default_title = os.path.basename(active_view) if active_view else "Untitled"
+        self.default_title = (
+            os.path.basename(active_view) if active_view else "Untitled"
+        )
 
         # [INFO] Sublime Text input panel:
         # https://www.sublimetext.com/docs/api_reference.html#sublime.Window.show_input_panel
@@ -74,10 +76,12 @@ class PasteryCommand(sublime_plugin.TextCommand):
             self.default_title,
             self.on_done,
             # [REQUIRED] Wrapping “sublime.status_message()” to function here
-            lambda *args: sublime.status_message("You are editing the default snippet name"),
+            lambda *args: sublime.status_message(
+                "You are editing the default snippet name"
+            ),
             lambda *args: sublime.status_message(
                 "The snippet wasn’t sent to Pastery. To send, press “Enter” when your caret inside the input panel."
-            )
+            ),
         )
 
     def on_done(self, user_input):
@@ -120,9 +124,7 @@ class PasteryCommand(sublime_plugin.TextCommand):
             return
 
         # [INFO] The final URL to send to Pastery via API
-        url = (
-            f"https://www.pastery.net/api/paste/?api_key={self.api_key}&duration={self.duration}&title={encoded_title}"
-        )
+        url = f"https://www.pastery.net/api/paste/?api_key={self.api_key}&duration={self.duration}&title={encoded_title}"
         print(url)
 
         # determine POST
@@ -146,7 +148,9 @@ class PasteryCommand(sublime_plugin.TextCommand):
         except Exception:
             print("Trying to post with CURL")
             response = subprocess.Popen(
-                ["curl", "-X", "POST", url, "--data", content], stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                ["curl", "-X", "POST", url, "--data", content],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
             )
             stdout, stderr = response.communicate()
             rurl = json.loads(stdout.decode("utf8"))["url"]
