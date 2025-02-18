@@ -1,4 +1,9 @@
-// enter your Pastery API key here.
 {
- "api_key": "foo"
+	/* [INFO] (string, required) Your API key, get it in your Pastery account:
+	https://www.pastery.net/account/ */
+	"api_key": "foo",
+
+	/* [INFO] (string, optional) The duration, in minutes, that your snippets will live on remote Pastery server.
+	Default value is 30 days. */
+	"duration": "43200"
 }
